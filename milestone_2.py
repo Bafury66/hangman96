@@ -13,9 +13,11 @@ def get_single_letter():
         #print(f'You have entered " {guess} ".')
         if len(guess) == 1 and guess.isalpha() == True:
             print("Good guess!")
+            return guess    
         else:
             print("Oops! That is not a valid input.")
-        return guess
+  
+    
     
 get_random_word()
 get_single_letter()
