@@ -12,6 +12,15 @@ This is an implementation of the Hangman game, where the computer thinks of a wo
     - if given letter is single letter?
     - if given letter is alphabet?
     - if given letter exisit within randomly choosen word?
+- Once given input is valid
+    - feedback message to user
+    - replace the corresponding "_" in the word_guessed list with the letter
+    - add given letter to guessed list
+    - tells user how many unique letter remaining
+- if given letter is not within the word
+    - feedback message to user
+    - update remaining live(s)
+    - add given letter to guessed list
 # Installation instructions
 
 N/A
