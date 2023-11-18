@@ -15,11 +15,12 @@ class Hangman:
     def __init__(self, word_list , num_lives = 5):
         self.word_list = word_list
         self.word = random.choice(self.word_list)
-        print(self.word)
+        #print(self.word)
         self.word_guessed = ["_"] * len(self.word)
         print(self.word_guessed)
         self.num_letters = len(set(self.word))
         print(f'Number of UNIQUE letters not been guessed yet = {self.num_letters}')
+        print("===="*20)
         self.num_lives = num_lives
         self.list_of_guesses = []
         
@@ -51,6 +52,7 @@ class Hangman:
             self.num_lives -= 1
             print(f'Sorry, "{guess}" is not in the word.')
             print(f'You have {self.num_lives} lives left.') 
+            print(self.word_guessed)
     
     def ask_for_input(self):
         """
@@ -73,7 +75,7 @@ class Hangman:
                 self.check_guess(guess)
                 self.list_of_guesses.append(guess)
                 print(f'Here are the letter(s) you have guessed so far: {self.list_of_guesses}')
-                print("===="*10)
+                print("===="*20)
                 return      
 
 def play_game(word_list) -> None:
