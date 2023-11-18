@@ -20,7 +20,7 @@ class Hangman:
         print(self.word_guessed)
         self.num_letters = len(set(self.word))
         print(f'Number of UNIQUE letters not been guessed yet = {self.num_letters}')
-        print("===="*20)
+        self.print_divider()
         self.num_lives = num_lives
         self.list_of_guesses = []
         
@@ -48,6 +48,7 @@ class Hangman:
             print(self.word_guessed)
             self.num_letters -= 1
             print(f'Number of UNIQUE letters remaining = {self.num_letters}')
+            print(f'You have {self.num_lives} lives left.')
         else:
             self.num_lives -= 1
             print(f'Sorry, "{guess}" is not in the word.')
@@ -66,18 +67,25 @@ class Hangman:
             # TODO : Ask the user to guess a letter and assign this to a variable called guess
             guess = input("Please guess and enter a single letter and hit Enter: ")
             # TODO : Create an if statement that runs if the guess is NOT a single alphabetical character
-            if len(guess) != 1 and guess.isalpha() != True:
+            if len(guess) != 1 or guess.isalpha() != True:
                 # TODO : Print the message when condition met
                 print("Invalid letter. Please, enter a single alphabetical character.")
+                self.print_divider()
             elif guess in self.list_of_guesses:
                 print("You already tried that letter!")
             else:
                 self.check_guess(guess)
                 self.list_of_guesses.append(guess)
                 print(f'Here are the letter(s) you have guessed so far: {self.list_of_guesses}')
-                print("===="*20)
-                return      
-
+                self.print_divider()
+                return
+            
+    def print_divider(self):
+        """
+        This function simply prints the divider lines after each guess so the feedback is easier to see. 
+        """
+        print("===="*20)
+        
 def play_game(word_list) -> None:
     """
     This function starts the Hangman game utlising Hangman Class.
